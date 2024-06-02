@@ -117,7 +117,7 @@ function createGrid() {
             if (!currentCard.matched && flippedCards.length < 2) {
 
                 card.classList.add("flipped");
-                card.textContent = "!";
+                card.textContent = id;
                 flippedCards.push({ id, text: currentCard.text, pairId: currentCard.pairId });
 
                 document.getElementById("title-"+flippedCards.length).textContent = currentCard.text;

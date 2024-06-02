@@ -11,24 +11,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Unica+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
 </head>
 
 <body>
-    <div class="header">
-        <div style="text-align: center;">
-            <img src="./img/bg.png" alt="" style="width: 40vh; height: auto;">
-        </div>
-        <a href="index.html">
-            <button type="button" class="btn btn-primary" style="font-size: 30px; padding: 4px 24px;">
-                Jogar
-            </button>
-        </a>
-        <button type="button" class="btn btn-primary" style="font-size: 30px; padding: 4px 24px;">
-            Como jogar
-        </button>
-    </div>
+    <div class="container-md d-flex justify-content-center"
+        style="display: flex; justify-content: center; align-items: center;flex-direction: column; margin-top: 10vh;">
+        <h3 id="fase">Fase 1</h3>
 
+        <p id="score">Total de pares acertados: 0</p>
+
+        <div class="content" style="text-align: center; ">
+            <p id="title-1"></p>
+            <p id="title-2"></p>
+        </div>
+        
+        <div class="grid row" id="grid-container" style="display: flex; justify-content: center; align-items: center;">
+        </div>
+
+        <script src="game_script.js"></script>
+    </div>
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
