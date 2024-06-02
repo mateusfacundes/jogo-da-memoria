@@ -1,0 +1,41 @@
+body {
+    background-color: #00285D !important;
+    color: white !important;
+    font-family: "Unica One", sans-serif !important;
+    font-style: normal;
+}
+
+.grid {
+    /* display: grid;
+    grid-template-columns: repeat(4, 1fr); */
+    gap: 8px;
+    text-align: center;
+}
+
+.card {
+    color: black;
+    background-color: #f0f0f0;
+    padding: 40px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 12px;
+}
+
+
+.flipped {
+    background-color: #b0c4de !important;
+}
+
+.matched {
+    background-color: #3ee784 !important;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 10vh;
+}
