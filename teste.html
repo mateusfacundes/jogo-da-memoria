@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<title>Tabela Dinâmica</title>
+<script>
+function adicionarLinha() {
+  var tabela = document.getElementById("minhaTabela");
+  var linha = tabela.insertRow(-1);
+  var celula1 = linha.insertCell(0);
+  var celula2 = linha.insertCell(1);
+  celula1.innerHTML = document.getElementById("textoEsquerda").value;
+  celula2.innerHTML = document.getElementById("textoDireita").value;
+}
+</script>
+</head>
+<body>
+
+<input type="text" id="textoEsquerda" placeholder="Texto Esquerda">
+<input type="text" id="textoDireita" placeholder="Texto Direita">
+<button onclick="adicionarLinha()">Adicionar Linha</button>
+
+<table id="minhaTabela" border="1">
+  <tr>
+    <th>Coluna Esquerda</th>
+    <th>Coluna Direita</th>
+  </tr>
+</table>
+
+</body>
+</html>

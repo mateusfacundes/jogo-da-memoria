@@ -15,7 +15,7 @@
 
 <body>
     <div class="container-md d-flex justify-content-center"
-        style="display: flex; justify-content: center; align-items: center;flex-direction: column; margin-top: 10vh;">
+        style="display: flex; justify-content: center; align-items: center;flex-direction: column; margin-top: 5vh;">
         <h3 id="fase">Fase 1</h3>
 
         <p id="score">Total de pares acertados: 0</p>
@@ -24,8 +24,18 @@
             <p id="title-1"></p>
             <p id="title-2"></p>
         </div>
-        
+
         <div class="grid row" id="grid-container" style="display: flex; justify-content: center; align-items: center;">
+        </div>
+
+        <div style="margin-top: 24px;">
+            <h5 style="text-align: center;">pares acertados</h5>
+            <table class="table table-dark table-striped" id="table-respostas">
+                <tr>
+                    <th>Card 1</th>
+                    <th>Card 2</th>
+                </tr>
+            </table>
         </div>
 
         <script src="game_script.js"></script>

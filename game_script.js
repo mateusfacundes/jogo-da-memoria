@@ -120,7 +120,7 @@ function createGrid() {
                 card.textContent = id;
                 flippedCards.push({ id, text: currentCard.text, pairId: currentCard.pairId });
 
-                document.getElementById("title-"+flippedCards.length).textContent = currentCard.text;
+                document.getElementById("title-"+flippedCards.length).textContent = `Card ${id} - ${currentCard.text}`;
 
                 if (flippedCards.length === 2) {
                     setTimeout(checkMatch, 500);
@@ -131,8 +131,19 @@ function createGrid() {
     }
 }
 
+function adicionarRespostas(pergunta, resposta) {
+    var tabela = document.getElementById("table-respostas");
+    var linha = tabela.insertRow(-1);
+    var celula1 = linha.insertCell(0);
+    var celula2 = linha.insertCell(1);
+    celula1.innerHTML = pergunta;
+    celula2.innerHTML = resposta;
+}
+
+const sortRespostas = (a, b) =>{  return a.id - b.id; }
+
 function checkMatch() {
-    const [firstCard, secondCard] = flippedCards;
+    const [firstCard, secondCard] = flippedCards.sort(sortRespostas);
     
     if (firstCard.pairId + "" === secondCard.id + "" && secondCard.pairId + "" === firstCard.id + "") {
         flippedCards.forEach(({ id }) => {
@@ -142,6 +153,8 @@ function checkMatch() {
         });
         totalMatches++;
         document.getElementById("score").textContent = `Total de pares acertados: ${totalMatches}`;
+
+        adicionarRespostas(`${firstCard.id} : ${firstCard.text}` , `${secondCard.id} : ${secondCard.text}`)
 
         if(Object.values(cards[faseAtual]).every(el => el.matched)){
             faseAtual += 1
