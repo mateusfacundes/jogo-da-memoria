@@ -1,5 +1,5 @@
 let cards = {
-    1 : {
+    1: {
         1: { text: "*População:* Se há 100 alunos em uma escola, a população é 100", matched: false, pairId: 31 },
         31: { text: "*A população é 100", matched: false, pairId: 1 },
 
@@ -18,7 +18,7 @@ let cards = {
         6: { text: "*Frequência:* Se contamos quantos alunos têm uma altura de 170 cm na amostra e são 3, a frequência é 3", matched: false, pairId: 36 },
         36: { text: "*A frequência é 3", matched: false, pairId: 6 },
     },
-    2 : {
+    2: {
         7: { text: "*Distribuição de Frequência:* Se apresentamos uma tabela que mostra a frequência das diferentes alturas dos alunos na amostra", matched: false, pairId: 37 },
         37: { text: "*Apresentamos uma tabela que mostra a frequência das diferentes alturas dos alunos na amostra", matched: false, pairId: 7 },
 
@@ -38,7 +38,7 @@ let cards = {
         42: { text: "*O desvio padrão das alturas na amostra nos dá uma medida da dispersão dos dados em torno da média", matched: false, pairId: 12 },
 
     },
-    3 : {
+    3: {
         13: { text: "*Percentil:* Se determinamos o percentil 75 das alturas na amostra para saber o valor abaixo do qual 75% dos dados estão", matched: false, pairId: 43 },
         43: { text: "*O percentil 75 das alturas na amostra nos dá o valor abaixo do qual 75% dos dados estão", matched: false, pairId: 13 },
 
@@ -57,7 +57,7 @@ let cards = {
         18: { text: "*Gráfico de Barras:* Se fizermos um gráfico de barras que mostra a frequência de alunos em diferentes faixas de altura", matched: false, pairId: 48 },
         48: { text: "*Um gráfico de barras mostra a frequência de alunos em diferentes faixas de altura", matched: false, pairId: 18 },
     },
-    4 : {
+    4: {
         19: { text: "*Box Plot (Diagrama de Caixa):* Se desenharmos um gráfico que mostra os quartis e os valores atípicos das alturas dos alunos na amostra", matched: false, pairId: 49 },
         49: { text: "*Um box plot mostra os quartis e os valores atípicos das alturas dos alunos na amostra", matched: false, pairId: 19 },
 
@@ -76,7 +76,7 @@ let cards = {
         24: { text: "*Outlier:* Se identificarmos um aluno com uma altura muito maior do que o resto na amostra", matched: false, pairId: 54 },
         54: { text: "*Um outlier é um aluno com uma altura muito maior do que o resto na amostra", matched: false, pairId: 24 },
     },
-    5 : {
+    5: {
         25: { text: "*Simetria:* Se os dados de altura dos alunos na amostra estiverem distribuídos uniformemente em torno da média", matched: false, pairId: 55 },
         55: { text: "*A simetria ocorre quando os dados de altura dos alunos na amostra estão distribuídos uniformemente em torno da média", matched: false, pairId: 25 },
 
@@ -105,8 +105,12 @@ let faseAtual = 1;
 
 function createGrid() {
     const gridContainer = document.getElementById("grid-container");
+    cards[faseAtual]
 
-    for (let id in cards[faseAtual]) {
+    // let shuffledCards = Object.keys(cards[faseAtual])
+    let shuffledCards = Object.keys(cards[faseAtual]).sort(() => 0.5 - Math.random())
+
+    shuffledCards.forEach((id) => {
         const card = document.createElement("div");
         card.classList.add("card");
         card.classList.add("col-3");
@@ -120,15 +124,15 @@ function createGrid() {
                 card.textContent = id;
                 flippedCards.push({ id, text: currentCard.text, pairId: currentCard.pairId });
 
-                document.getElementById("title-"+flippedCards.length).textContent = `Card ${id} - ${currentCard.text}`;
+                document.getElementById("title-" + flippedCards.length).textContent = `Card ${id} - ${currentCard.text}`;
 
                 if (flippedCards.length === 2) {
-                    setTimeout(checkMatch, 500);
+                    setTimeout(checkMatch, 800);
                 }
             }
         });
         gridContainer.appendChild(card);
-    }
+    })
 }
 
 function adicionarRespostas(pergunta, resposta) {
@@ -140,11 +144,11 @@ function adicionarRespostas(pergunta, resposta) {
     celula2.innerHTML = resposta;
 }
 
-const sortRespostas = (a, b) =>{  return a.id - b.id; }
+const sortRespostas = (a, b) => { return a.id - b.id; }
 
 function checkMatch() {
     const [firstCard, secondCard] = flippedCards.sort(sortRespostas);
-    
+
     if (firstCard.pairId + "" === secondCard.id + "" && secondCard.pairId + "" === firstCard.id + "") {
         flippedCards.forEach(({ id }) => {
             const cardElement = document.querySelector(`.card[data-id="${id}"]`);
@@ -154,16 +158,21 @@ function checkMatch() {
         totalMatches++;
         document.getElementById("score").textContent = `Total de pares acertados: ${totalMatches}`;
 
-        adicionarRespostas(`${firstCard.id} : ${firstCard.text}` , `${secondCard.id} : ${secondCard.text}`)
+        adicionarRespostas(`${firstCard.id} : ${firstCard.text}`, `${secondCard.id} : ${secondCard.text}`)
 
-        if(Object.values(cards[faseAtual]).every(el => el.matched)){
+        if (Object.values(cards[faseAtual]).every(el => el.matched)) {
             faseAtual += 1
-            document.getElementById("fase").textContent = `Fase: ${faseAtual}`;
-            console.log("passou de fase")
-            const gridContainer = document.getElementById("grid-container")
-            gridContainer.innerHTML = ""
+            if (cards[faseAtual]) {
+                document.getElementById("fase").textContent = `Fase: ${faseAtual}`;
+                // console.log("passou de fase")
+                const gridContainer = document.getElementById("grid-container")
+                gridContainer.innerHTML = ""
 
-            createGrid()
+                createGrid()
+            }
+            else {
+                window.alert("Você concluiu o jogo! parabéns!")
+            }
         }
 
     } else {
