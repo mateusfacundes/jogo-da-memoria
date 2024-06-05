@@ -50,14 +50,12 @@ body {
 th,
 td {
     width: 50%;
-    /* Define cada célula para ocupar metade da tabela */
     text-align: left;
-    /* Alinha o texto à esquerda */
 }
 
 #meuBotao {
     position: fixed;
-    bottom: 20px;
+    bottom: 8px;
     right: 20px;
 }
 
