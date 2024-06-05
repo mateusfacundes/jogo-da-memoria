@@ -1,31 +1,43 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html>
 <head>
-<meta charset="UTF-8">
-<title>Tabela Dinâmica</title>
-<script>
-function adicionarLinha() {
-  var tabela = document.getElementById("minhaTabela");
-  var linha = tabela.insertRow(-1);
-  var celula1 = linha.insertCell(0);
-  var celula2 = linha.insertCell(1);
-  celula1.innerHTML = document.getElementById("textoEsquerda").value;
-  celula2.innerHTML = document.getElementById("textoDireita").value;
-}
-</script>
+    <title>Botão Fixo com Modal</title>
+    <!-- Inclua o CSS do Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <style>
+        #meuBotao {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+        }
+    </style>
 </head>
 <body>
+    <!-- Botão -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#meuModal" id="meuBotao">
+        Clique aqui
+    </button>
 
-<input type="text" id="textoEsquerda" placeholder="Texto Esquerda">
-<input type="text" id="textoDireita" placeholder="Texto Direita">
-<button onclick="adicionarLinha()">Adicionar Linha</button>
+    <!-- Modal -->
+    <div class="modal fade" id="meuModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Título do Modal</h4>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                </div>
+                <div class="modal-body">
+                    Conteúdo do modal.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<table id="minhaTabela" border="1">
-  <tr>
-    <th>Coluna Esquerda</th>
-    <th>Coluna Direita</th>
-  </tr>
-</table>
-
+    <!-- Inclua o jQuery e o JS do Bootstrap -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </body>
 </html>

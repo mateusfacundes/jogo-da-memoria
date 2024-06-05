@@ -54,3 +54,13 @@ td {
     text-align: left;
     /* Alinha o texto à esquerda */
 }
+
+#meuBotao {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+#meuModal {
+    color: black;
+}

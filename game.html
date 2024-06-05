@@ -42,6 +42,77 @@
         <script src="game_script.js"></script>
     </div>
 
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#meuModal" id="meuBotao">
+        Como jogar
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade " id="meuModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Como Jogar "Memória Estatística: Conectando Dado</h5>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                </div>
+                <div class="modal-body">
+                    <div style="text-align: center;">
+                        <img src="./img/data.png" alt="" style="width: 40vh; height: auto;">
+                    </div>
+                    <p>
+                        <b>Objetivo do Jogo:</b>
+                        O objetivo do jogo é encontrar e combinar todos os pares de cartas que representam conceitos
+                        estatísticos. Cada par de cartas contém informações relacionadas à estatística.
+                    </p>
+                    <p>
+                        <b>Regras do Jogo:</b>
+                        1. Início do Jogo:
+                        - Ao iniciar o jogo, você verá um tabuleiro com várias cartas viradas para baixo. Cada carta tem
+                        um par correspondente.
+                    </p>
+                    <p>
+                        2. <b>Virar as Cartas:</b>
+                        - Clique em uma carta para virá-la e revelar o conceito estatístico escondido. Em seguida,
+                        clique em outra carta para tentar encontrar o par correspondente.
+
+                    </p>
+                    <p>
+                        3. <b>Encontrar Pares:</b>
+                        - Se as duas cartas viradas formarem um par, elas permanecerão viradas para cima e você ganhará
+                        pontos.
+                        - Se as cartas não formarem um par, elas serão viradas novamente para baixo após alguns
+                        segundos. Tente lembrar a posição das cartas para futuras tentativas.
+                    </p>
+                    <p>
+                        4. <b>Continuar Jogando:</b>
+                        - Continue virando cartas e tentando encontrar pares até que todas as cartas no tabuleiro
+                        estejam combinadas.
+                    </p>
+                    <p>
+                        5. <b>Pontuação :</b>
+                        - Sua pontuação aumenta a cada par encontrado
+
+                    </p>
+
+                    <p>
+                        <b>Dicas para Jogar:</b>
+                        - Preste atenção às cartas que você já virou e tente lembrar suas posições.
+                        - Mantenha a calma e jogue no seu ritmo. A prática tornará você mais rápido e eficiente!
+                    </p>
+
+                    <b>Conclusão do Jogo:</b>
+                    - O jogo termina quando todos os pares de cartas são encontrados.
+                    - Sua pontuação final e o tempo serão exibidos. Use essas informações para tentar melhorar em
+                    futuras partidas!
+
+                    Pronto para começar? Clique em "Iniciar Jogo" e comece a conectar os dados estatísticos agora
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
